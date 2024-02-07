@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <b>RecommenderForces</b>
+    <form action="/update_problems">
+    <button class="btn" title="Load new problems"><span class="glyphicon glyphicon-refresh"></span> {# Refresh button #}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"></path>
+            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"></path>
+        </svg>
+    </button>
+    </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item {% if 'recommended' in request.path%}active{% endif %}">
+                        <a class="nav-link" href="/recommended">Recommended</a>
+                    </li>
+                    <li class="nav-item {% if 'rate' in request.path or request.path == '/'%}active{% endif %}">
+                        <a class="nav-link" href="/rate">Rate</a>
+                    </li>
+                </ul>
+              </div>
+    </nav>
+
+
+{% endblock %}
