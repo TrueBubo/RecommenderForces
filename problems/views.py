@@ -4,9 +4,6 @@ import requests
 from rest_framework.response import Response
 from problems.models import Problem
 
-def say_name(request):
-    return HttpResponse(["Hello name", "No"]) 
-
 def get_problems(request):
     response = requests.get("https://codeforces.com/api/problemset.problems").json()
     return Response(response)
@@ -15,7 +12,7 @@ def recommended(request):
     return render(request, "recommended.html", {})
 
 def rate(request):
-    return render(request, "rate.html", {})
+    return render(request, "rate.html", {"request": request})
 
 def update_problems(request):
     url = "https://codeforces.com/api/problemset.problems"

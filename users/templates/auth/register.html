@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        <b>Use the same username as in codeforces</b>
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit" class="btn btn-primary"></input>
+
+    </form>
+
+{% endblock %}

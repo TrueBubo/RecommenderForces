@@ -16,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -36,9 +36,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/bubo/Programming/RecommenderForces&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;aDefault&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/users/templates/auth" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="RecommenderForces" type="Python.DjangoServer" factoryName="Django server">
       <module name="RecommenderForces" />
@@ -82,6 +87,10 @@
       <workItem from="1707227882194" duration="11876000" />
       <workItem from="1707272592263" duration="402000" />
       <workItem from="1707273005300" duration="2045000" />
+      <workItem from="1707323488736" duration="675000" />
+      <workItem from="1707324655874" duration="9183000" />
+      <workItem from="1707341613634" duration="2532000" />
+      <workItem from="1707403755817" duration="4546000" />
     </task>
     <servers />
   </component>
@@ -92,6 +101,11 @@
           <url>file://$PROJECT_DIR$/api/views.py</url>
           <line>8</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/recommenderforces/urls.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

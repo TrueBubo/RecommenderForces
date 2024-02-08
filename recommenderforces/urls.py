@@ -57,5 +57,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('', include('problems.urls'))
+    path('', include('problems.urls')),
+    path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls'))
 ]
