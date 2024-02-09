@@ -4,6 +4,11 @@
 {% block content %}
     {% include 'header.html' %}
     <title>Recommended Problems</title>
-
+    <h2 class="text-center">Recommended Problems</h2>
+    {% for problem in problems %}
+        <div class="text-center">
+            <a href="https://codeforces.com/problemset/problem/{{ problem.1 }}/{{ problem.2 }}">{{ problem.1 }}{{ problem.2 }} {{ problem.0 }}</a>  <br>
+        </div>
+    {% endfor %}
 
 {% endblock %}
