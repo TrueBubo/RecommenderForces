@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import requests
 from rest_framework.response import Response
@@ -11,10 +11,12 @@ def get_problems(request):
 
 
 def recommended(request):
+    if not request.user.is_authenticated: return redirect("login")
     return render(request, "recommended.html", {})
 
 
 def rate(request):
+    if not request.user.is_authenticated: return redirect("login")
     url = f"https://codeforces.com/api/user.status?handle={request.user}"
     problems = requests.get(url).json()["result"]
     problems_names = []
@@ -29,6 +31,7 @@ def rate(request):
 
 
 def update_problems(request):
+    if not request.user.is_authenticated: return redirect("login")
     url = "https://codeforces.com/api/problemset.problems"
     response = requests.get(url).json()["result"]["problems"]
 
