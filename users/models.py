@@ -5,10 +5,14 @@ from django.db import models
 def defaultDict():
     return {}
 
+def defaultList():
+    return []
+
 # Extension of default user moder
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    preferences = models.JSONField(default=defaultDict) # tag: user rating mapping
+    preferences = models.JSONField(default=defaultDict) # rating: average rating + tag: [user rating mapping, number of rated with given tag]
+    rated_problems = models.JSONField(default=defaultList) # id of problems
 
     def __str__(self):
         return str(self.user)

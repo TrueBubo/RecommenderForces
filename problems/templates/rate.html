@@ -4,14 +4,18 @@
     {% include 'header.html' %}
     <title>Rate problems</title>
     <h2 class="text-center">Would you like to see other problems like this</h2>
-    <form method="post">
+        <div class="text-secondary text-center">
+    Only non-default rating will be submitted
+    </div>
+    <form method="post" >
+        {% csrf_token %}
         {% for problem in problems %}
             <div class="card p-2 mt-2">
                 {{ problem.0 }} {{ problem.1 }}
                 <div class="d-flex justify-content-between">
                     <span class="mr-auto">Less</span><span class="ml-auto">More</span>
                 </div>
-                <input type="range" min="-2" max="2" value="0" class="form-range" name={{ problem.0 }}>
+                <input type="range" min=-2 max=2 value=0 class="form-range" name={{ problem.0 }}>
             </div>
 
         {% endfor %}
