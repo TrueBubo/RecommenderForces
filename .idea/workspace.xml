@@ -90,7 +90,8 @@
       <workItem from="1707323488736" duration="675000" />
       <workItem from="1707324655874" duration="9183000" />
       <workItem from="1707341613634" duration="2532000" />
-      <workItem from="1707403755817" duration="6058000" />
+      <workItem from="1707403755817" duration="7408000" />
+      <workItem from="1707427623402" duration="12089000" />
     </task>
     <servers />
   </component>
@@ -103,9 +104,14 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/recommenderforces/urls.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/problems/views.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="django-line">
+          <url>file://$PROJECT_DIR$/problems/templates/rate.html</url>
+          <line>7</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

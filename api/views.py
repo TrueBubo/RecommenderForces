@@ -27,12 +27,7 @@ def update_problems(request):
 @api_view(["GET"])
 def get_user_problems(request, user):
     url = f"https://codeforces.com/api/user.status?handle={user}"
-    response = requests.get(url).json()["result"]
-    problems_serialized = []
-    for problem in response:
-        problemInfo = problem["problem"]
-        problems_serialized.append(
-            f"{problemInfo['contestId']}{problemInfo['index']} {problemInfo['name']}"
-        )
+    problems = requests.get(url).json()["result"]
+    problems_serialized = [f"{problem['problem']['contestId']}{problem['problem']['index']} {problem['problem']['name']}'" for problem in problems]
     return JsonResponse(problems_serialized, safe=False)
 

@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
     {% include 'header.html' %}
     <title>Rate problems</title>
+    <h2 class="text-center">Would you like to see other problems like this</h2>
+    <form method="post">
+        {% for problem in problems %}
+            <div class="card p-2 mt-2">
+                {{ problem.0 }} {{ problem.1 }}
+                <div class="d-flex justify-content-between">
+                    <span class="mr-auto">Less</span><span class="ml-auto">More</span>
+                </div>
+                <input type="range" min="-2" max="2" value="0" class="form-range" name={{ problem.0 }}>
+            </div>
 
+        {% endfor %}
+        <br><br>
+        <button type="submit" class="fixed-bottom ml-auto btn btn-primary btn-lg">Submit</button>
+    </form>
 {% endblock %}
