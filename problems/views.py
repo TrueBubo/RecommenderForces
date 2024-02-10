@@ -55,7 +55,6 @@ def recommended(request):
 # Shows problem which are yet to be rated
 def rate(request):
     if not request.user.is_authenticated: return redirect("login")
-    print(request.user)
     if request.user.username == "admin": return redirect("/admin")
 
     # Updates db with new ratings
@@ -101,6 +100,7 @@ def rate(request):
     # Only get problemID + name
     for problem in problems:
         problemInfo = problem['problem']
+        if not "contestId" in problemInfo or not "index" in problemInfo: continue # Problem does not have valid identificators
         problemId = f"{problemInfo['contestId']}{problemInfo['index']}"
         if problemId not in unique_ids and not binary_in(rated_problems, problemId):
             unique_ids.add(problemId)
