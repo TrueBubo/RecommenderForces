@@ -16,6 +16,7 @@ from helper_functions import binary_in, euclidian_distance_squared_per_component
 # Shows problems which are recommended based on user ratings
 def recommended(request):
     if not request.user.is_authenticated: return redirect("login")
+    if request.user.username == "admin": return redirect("/admin")
 
     # Load user's solved problems
     url = f"https://codeforces.com/api/user.status?handle={request.user}"
@@ -34,9 +35,9 @@ def recommended(request):
         abs(int(preferences["rating"]) + 100 - int(problem.rating)) < 200 and problem.problem_id not in solved_ids]
     # Takes 1000 closest problems
     k = 1000
-    closest_problems = k_smallest_elements(distances, k)
+    closest_problems = k_smallest_elements(distances, min(k, len(distances) - 1))
     # numpy will normalize it to sum to 1
-    probability_function = np.arange(k, 0, -1)
+    probability_function = np.arange(min(k, len(distances)) - 1, 0, -1)
     chosen_problems = choices(closest_problems, probability_function, k=20)
 
     chosen_problems_info = []
@@ -54,6 +55,8 @@ def recommended(request):
 # Shows problem which are yet to be rated
 def rate(request):
     if not request.user.is_authenticated: return redirect("login")
+    print(request.user)
+    if request.user.username == "admin": return redirect("/admin")
 
     # Updates db with new ratings
     if request.method == "POST":
@@ -107,6 +110,7 @@ def rate(request):
 
 def update_problems(request):
     if not request.user.is_authenticated: return redirect("login")
+    if request.user.username == "admin": return redirect("/admin")
 
     # Load all problems
     url = "https://codeforces.com/api/problemset.problems"
