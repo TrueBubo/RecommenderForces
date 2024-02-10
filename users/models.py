@@ -3,7 +3,7 @@ from django.db import models
 
 
 def defaultDict():
-    return {}
+    return {"rating": 800}
 
 def defaultList():
     return []

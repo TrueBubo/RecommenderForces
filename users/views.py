@@ -32,7 +32,8 @@ def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            if not requests.get("https://codeforces.com/api/user.info?handles=" + form.cleaned_data['username']).ok:
+            verification = requests.get("https://codeforces.com/api/user.status?handle=" + form.cleaned_data['username'])
+            if not verification.ok:
                 messages.error(request, f"Codeforces user named {form.cleaned_data['username']} does not exist")
                 return redirect("register")
             user = form.save()
