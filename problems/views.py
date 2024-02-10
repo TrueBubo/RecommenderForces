@@ -6,6 +6,7 @@ import numpy as np
 import requests
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from problems.models import Problem
 from users.models import Profile
@@ -26,6 +27,9 @@ def recommended(request):
 
     profile = Profile.objects.get(user=request.user)
     preferences = profile.preferences
+    if preferences == {"rating": 800}:
+        messages.error(request, "You need to first rate some problems")
+        return redirect("rate")
     problems = Problem.objects.all()
 
     # Euclidian distance normalized for number of components
