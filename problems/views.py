@@ -21,7 +21,8 @@ def recommended(request):
     # Load user's solved problems
     url = f"https://codeforces.com/api/user.status?handle={request.user}"
     problems = requests.get(url).json()["result"]
-    solved_ids = {f"{problem['problem']['contestId']}{problem['problem']['index']}" for problem in problems}
+    solved_ids = {f"{problem['problem']['contestId']}{problem['problem']['index']}" for problem in problems
+                  if 'contestId' in problem['problem'] and 'index' in problem['problem']}
 
     profile = Profile.objects.get(user=request.user)
     preferences = profile.preferences

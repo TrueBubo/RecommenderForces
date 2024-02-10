@@ -96,7 +96,7 @@
       <workItem from="1707510302653" duration="10684000" />
       <workItem from="1707522409217" duration="5748000" />
       <workItem from="1707532033291" duration="995000" />
-      <workItem from="1707567912001" duration="628000" />
+      <workItem from="1707567912001" duration="1476000" />
     </task>
     <servers />
   </component>
@@ -115,7 +115,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/problems/views.py</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">
