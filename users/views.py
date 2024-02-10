@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
+import requests
 
 
 # Create your views here.
@@ -31,6 +32,9 @@ def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            if not requests.get("https://codeforces.com/api/user.info?handles=" + form.cleaned_data['username']).ok:
+                messages.error(request, f"Codeforces user named {form.cleaned_data['username']} does not exist")
+                return redirect("register")
             user = form.save()
             Profile.objects.create(user=user)
             username = form.cleaned_data['username']

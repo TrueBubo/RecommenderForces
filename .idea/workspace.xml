@@ -96,7 +96,8 @@
       <workItem from="1707510302653" duration="10684000" />
       <workItem from="1707522409217" duration="5748000" />
       <workItem from="1707532033291" duration="995000" />
-      <workItem from="1707567912001" duration="1476000" />
+      <workItem from="1707567912001" duration="1708000" />
+      <workItem from="1707571125339" duration="922000" />
     </task>
     <servers />
   </component>
@@ -117,6 +118,11 @@
           <url>file://$PROJECT_DIR$/problems/views.py</url>
           <line>44</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/users/views.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">
           <url>file://$PROJECT_DIR$/problems/templates/rate.html</url>
