@@ -31,16 +31,24 @@ Additionally, a utility file named `helpful_functions.py` is included for housin
 ### problem/views.py/rate
 - Manages the rating page, displaying problems attempted but not yet rated by the logged-in user.
 - Updates user preferences based on the topics of rated problems.
+- User preferences for a topic are set as the average rating of all rated problems with such topic.
+- Rating for a topic can range from -2 when the user hated all problem with that topic, up to 2, when they loved all such problems
+- Ratings for a topic are saved as the sum of all ratings and the number of all ratings, allowing easy calculation of averages. 
 
 ### problem/views.py/recommend
 - Implements the recommendation page, presenting unattempted problems to the user.
 - Determines problem similarity based on average ratings of problems with similar tags.
+- Similarity of a problem is calculated using the Euclidian distance between user preferences and topics of a problem. 
+This distance is then normalized for the number of topics. You can read more about it in helper_functions.py/euclidian_distance_squared_per_component documentation
+- The similarity of a problem can be thought of as the similarity between user and another user who only rated this problem, and also loved the problem
 - Selects a random sample of closest problems, with selection probability decreasing for less similar problems.
 
 ###  helper_functions.py/euclidian_distance_squared_per_component
-- Finds squared Euclidian distance beween a new problem and current likings of the user. 
-- To save computation distance is squared to avoid unneccessary sqrt function calls. 
+- Finds squared Euclidian distance between a new problem and current likings of the user. 
+- To save computation distance is squared to avoid unnecessary sqrt function calls. 
 - Utilizes a per-component measure to address the potential disadvantage of problems with more tags.
+- Only compares topic distance if user already rated problems with such topic. Otherwise, it would disadvantage new 
+topics as this distance would increase distance from baseline, which is no information (represented as 0)
 
 ### helper_functions.py/k_smallest_elements
 - Retuns $k$ smallest elements based on `euclidian_distance_squared_per_component`. 
