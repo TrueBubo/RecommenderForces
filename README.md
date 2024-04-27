@@ -1,6 +1,4 @@
 # Recommender Forces
-Welcome to Recommender Forces, a program developed as a semester project at Charles University.
-
 Recommender Forces helps users discover programming problems on Codeforces tailored to their skills and preferences. Leveraging a sophisticated algorithm, it suggests problems closely matching the user's proficiency level while also introducing some novel challenges to keep the experience engaging.
 
 ## Key features
@@ -35,7 +33,7 @@ To get started with Recommender Forces, ensure you have python3 installed along 
 git clone https://github.com/devBubo/RecommenderForces
 cd RecommenderForces
 ```
-2, Start the server
+2. Start the server
 ```bash
 python manage.py runserver
 ```
