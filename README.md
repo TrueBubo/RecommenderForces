@@ -9,6 +9,10 @@ Recommender Forces helps users discover programming problems on Codeforces tailo
 -    Multi-user Support: Allows multiple users to be logged in simultaneously.
 
 ## Installation
+### Using docker
+`sudo docker-compose up`
+
+### Manual
 To get started with Recommender Forces, ensure you have python3 installed along with the following Python packages (tested versions listed):
 
 `asgiref==3.7.2`
