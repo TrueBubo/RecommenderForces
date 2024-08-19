@@ -30,7 +30,7 @@ To get started with Recommender Forces, ensure you have python3 installed along 
 ### Running the program
 1. Clone the repository
 ```bash
-git clone https://github.com/devBubo/RecommenderForces
+git clone https://github.com/TrueBubo/RecommenderForces
 cd RecommenderForces
 ```
 2. Start the server
